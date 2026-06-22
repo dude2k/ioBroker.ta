@@ -78,6 +78,7 @@ State IDs are stable and never depend on C.M.I. designations. Designations only 
 - `TOO MANY REQUESTS`: another client or adapter instance may be polling too quickly. Increase `requestSpacingSec`.
 - `CAN BUSY`: the CAN bus is busy. The adapter waits for `retryDelaySec` before the next request.
 - HTTP errors: verify protocol, host, port and firewall settings.
+- If the admin test connection succeeds but `ta.0.info.connection` is false, check `ta.0.info.lastError`. The test checks one request, while regular polling checks every enabled CAN node. One failing configured node can make the global connection indicator false.
 
 ## Development
 
@@ -104,9 +105,9 @@ There are existing ioBroker adapters and integrations around BL-NET/C.M.I. devic
 
 ## Changelog
 
-### NEXT
+### 0.0.2
 
-- Initial development version for read-only C.M.I. JSON API polling.
+- Log C.M.I. status errors with CAN node context.
 
 ### 0.0.1
 

@@ -1,6 +1,6 @@
 {
   "name": "iobroker.ta",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Read-only ioBroker adapter for the Technische Alternative C.M.I. JSON API.",
   "author": {
     "name": "dude2k",
