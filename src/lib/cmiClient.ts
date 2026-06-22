@@ -58,10 +58,10 @@ export function buildCmiApiUrl(
 	request: Pick<CmiClientRequest, "protocol" | "host" | "port" | "node" | "jsonparam" | "useDesignation">,
 ): URL {
 	const url = new URL(`${request.protocol}://${request.host}:${request.port}/INCLUDE/api.cgi`);
-	url.searchParams.set("jsonnode", String(request.node));
-	url.searchParams.set("jsonparam", request.jsonparam);
+	const jsonparam = encodeURIComponent(request.jsonparam).replace(/%2C/gi, ",");
+	url.search = `?jsonnode=${encodeURIComponent(String(request.node))}&jsonparam=${jsonparam}`;
 	if (request.useDesignation) {
-		url.searchParams.set("jsondesignation", "1");
+		url.search += "&jsondesignation=1";
 	}
 	return url;
 }

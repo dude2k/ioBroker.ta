@@ -106,10 +106,17 @@ There are existing ioBroker adapters and integrations around BL-NET/C.M.I. devic
 
 ## Changelog
 
+### 0.0.4
+
+- Send `jsonparam` with literal commas to avoid C.M.I. `SYNTAX ERROR` responses.
+
+### 0.0.3
+
+- Document that the configured nodes are target CAN devices, not the C.M.I. own CAN address.
+
 ### 0.0.2
 
 - Log C.M.I. status errors with CAN node context.
-- Document that the configured nodes are target CAN devices, not the C.M.I. own CAN address.
 
 ### 0.0.1
 
