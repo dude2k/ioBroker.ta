@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/lib/cmiStatus.ts"],
+  "sourcesContent": ["const STATUS_TEXTS = new Map<number, string>([\n\t[0, \"OK\"],\n\t[1, \"NODE ERROR\"],\n\t[2, \"FAIL\"],\n\t[3, \"SYNTAX ERROR\"],\n\t[4, \"TOO MANY REQUESTS\"],\n\t[5, \"DEVICE NOT SUPPORTED\"],\n\t[6, \"TOO FEW ARGUMENTS\"],\n\t[7, \"CAN BUSY\"],\n]);\n\nexport function getCmiStatusText(statusCode: number): string {\n\treturn STATUS_TEXTS.get(statusCode) ?? \"ERROR\";\n}\n\nexport function isBackoffStatus(statusCode: number): boolean {\n\treturn statusCode === 4 || statusCode === 7;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,MAAM,eAAe,oBAAI,IAAoB;AAAA,EAC5C,CAAC,GAAG,IAAI;AAAA,EACR,CAAC,GAAG,YAAY;AAAA,EAChB,CAAC,GAAG,MAAM;AAAA,EACV,CAAC,GAAG,cAAc;AAAA,EAClB,CAAC,GAAG,mBAAmB;AAAA,EACvB,CAAC,GAAG,sBAAsB;AAAA,EAC1B,CAAC,GAAG,mBAAmB;AAAA,EACvB,CAAC,GAAG,UAAU;AACf,CAAC;AAEM,SAAS,iBAAiB,YAA4B;AAX7D;AAYC,UAAO,kBAAa,IAAI,UAAU,MAA3B,YAAgC;AACxC;AAEO,SAAS,gBAAgB,YAA6B;AAC5D,SAAO,eAAe,KAAK,eAAe;AAC3C;",
+  "names": []
+}

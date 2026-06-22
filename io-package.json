@@ -1,0 +1,182 @@
+{
+	"common": {
+		"name": "ta",
+		"version": "0.0.1",
+		"news": {
+			"NEXT": {
+				"en": "Initial development version for read-only C.M.I. JSON API polling.",
+				"de": "Erste Entwicklungsversion fuer read-only Polling der C.M.I.-JSON-API."
+			},
+			"0.0.1": {
+				"en": "Initial release.",
+				"de": "Erste Veroeffentlichung."
+			}
+		},
+		"title": "Technische Alternative",
+		"titleLang": {
+			"en": "Technische Alternative",
+			"de": "Technische Alternative"
+		},
+		"desc": {
+			"en": "Read-only ioBroker adapter for the Technische Alternative C.M.I. JSON API.",
+			"de": "Read-only ioBroker-Adapter fuer die Technische Alternative C.M.I.-JSON-API."
+		},
+		"authors": ["dude2k <placeholder@example.com>"],
+		"keywords": ["iobroker", "technische alternative", "ta", "cmi", "uvr16x2", "heating", "solar", "can-bus"],
+		"licenseInformation": {
+			"type": "free",
+			"license": "MIT"
+		},
+		"platform": "Javascript/Node.js",
+		"icon": "ta.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/dude2k/ioBroker.ta/main/admin/ta.png",
+		"readme": "https://github.com/dude2k/ioBroker.ta/blob/main/README.md",
+		"loglevel": "info",
+		"tier": 3,
+		"mode": "daemon",
+		"type": "hardware",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "poll",
+		"messagebox": true,
+		"adminUI": {
+			"config": "json"
+		},
+		"encryptedNative": ["password"],
+		"protectedNative": ["password"],
+		"dependencies": [
+			{
+				"js-controller": ">=6.0.11"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=7.0.23"
+			}
+		]
+	},
+	"native": {
+		"host": "",
+		"port": 80,
+		"protocol": "http",
+		"username": "",
+		"password": "",
+		"timeoutMs": 10000,
+		"rejectUnauthorized": true,
+		"requestSpacingSec": 65,
+		"startupDelaySec": 5,
+		"retryDelaySec": 120,
+		"maxConsecutiveErrors": 3,
+		"nodes": [
+			{
+				"enabled": true,
+				"node": 1,
+				"name": "",
+				"jsonparam": "I,O,Sg,Sd,St,Ss",
+				"useDesignation": true,
+				"createRawJson": false
+			}
+		],
+		"cleanupMissingObjects": false
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"name": "C.M.I. connected",
+				"type": "boolean",
+				"role": "indicator.connected",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.lastUpdate",
+			"type": "state",
+			"common": {
+				"name": "Last update attempt",
+				"type": "number",
+				"role": "value.time",
+				"read": true,
+				"write": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.lastSuccessfulUpdate",
+			"type": "state",
+			"common": {
+				"name": "Last successful update",
+				"type": "number",
+				"role": "value.time",
+				"read": true,
+				"write": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.lastError",
+			"type": "state",
+			"common": {
+				"name": "Last error",
+				"type": "string",
+				"role": "text",
+				"read": true,
+				"write": false,
+				"def": ""
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.lastStatusCode",
+			"type": "state",
+			"common": {
+				"name": "Last C.M.I. status code",
+				"type": "number",
+				"role": "value",
+				"read": true,
+				"write": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.lastStatusText",
+			"type": "state",
+			"common": {
+				"name": "Last C.M.I. status text",
+				"type": "string",
+				"role": "text",
+				"read": true,
+				"write": false,
+				"def": ""
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.effectiveNodeIntervalSec",
+			"type": "state",
+			"common": {
+				"name": "Effective update interval per node",
+				"type": "number",
+				"role": "value.interval",
+				"unit": "s",
+				"read": true,
+				"write": false
+			},
+			"native": {}
+		}
+	]
+}

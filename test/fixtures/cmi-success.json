@@ -1,0 +1,46 @@
+{
+	"Status code": 0,
+	"Status": "OK",
+	"Header": {
+		"Version": "1.38",
+		"Device": "87",
+		"Timestamp": "2026-06-22 14:00:00"
+	},
+	"Data": {
+		"Inputs": [
+			{
+				"Number": 1,
+				"AD": "A",
+				"Designation": "Collector temperature",
+				"Value": {
+					"Value": 42.4,
+					"Unit": 1
+				}
+			}
+		],
+		"Outputs": [
+			{
+				"Number": 1,
+				"AD": "A",
+				"Designation": "Solar pump",
+				"Value": {
+					"Value": 55,
+					"Unit": 8,
+					"State": 1
+				}
+			}
+		],
+		"La": [
+			{
+				"Number": 1,
+				"AD": "A",
+				"Designation": "Log value",
+				"Value": {
+					"Value": 12,
+					"Unit": 69,
+					"RAS": 2
+				}
+			}
+		]
+	}
+}

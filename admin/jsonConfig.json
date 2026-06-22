@@ -1,0 +1,241 @@
+{
+	"i18n": true,
+	"type": "panel",
+	"items": {
+		"connectionHeader": {
+			"type": "header",
+			"text": "C.M.I. connection",
+			"size": 2
+		},
+		"host": {
+			"type": "text",
+			"label": "Host",
+			"placeholder": "192.168.1.50",
+			"newLine": true,
+			"xs": 12,
+			"sm": 12,
+			"md": 6,
+			"lg": 4,
+			"xl": 4
+		},
+		"port": {
+			"type": "number",
+			"label": "Port",
+			"min": 1,
+			"max": 65535,
+			"newLine": false,
+			"xs": 12,
+			"sm": 6,
+			"md": 3,
+			"lg": 2,
+			"xl": 2
+		},
+		"protocol": {
+			"type": "select",
+			"label": "Protocol",
+			"options": [
+				{ "label": "http", "value": "http" },
+				{ "label": "https", "value": "https" }
+			],
+			"newLine": false,
+			"xs": 12,
+			"sm": 6,
+			"md": 3,
+			"lg": 2,
+			"xl": 2
+		},
+		"username": {
+			"type": "text",
+			"label": "C.M.I. expert user",
+			"newLine": true,
+			"xs": 12,
+			"sm": 12,
+			"md": 6,
+			"lg": 4,
+			"xl": 4
+		},
+		"password": {
+			"type": "password",
+			"label": "Password",
+			"encrypted": true,
+			"newLine": false,
+			"xs": 12,
+			"sm": 12,
+			"md": 6,
+			"lg": 4,
+			"xl": 4
+		},
+		"timeoutMs": {
+			"type": "number",
+			"label": "Timeout (ms)",
+			"min": 1000,
+			"max": 60000,
+			"newLine": true,
+			"xs": 12,
+			"sm": 6,
+			"md": 3,
+			"lg": 2,
+			"xl": 2
+		},
+		"rejectUnauthorized": {
+			"type": "checkbox",
+			"label": "Reject unauthorized HTTPS certificates",
+			"newLine": false,
+			"xs": 12,
+			"sm": 6,
+			"md": 4,
+			"lg": 4,
+			"xl": 4
+		},
+		"pollingHeader": {
+			"type": "header",
+			"text": "Polling and rate limit",
+			"size": 2,
+			"newLine": true
+		},
+		"rateLimitNotice": {
+			"type": "staticText",
+			"text": "The C.M.I. JSON API allows only one request per minute. Multiple nodes are queried sequentially, so the effective update interval per node is nodes x request spacing.",
+			"newLine": true,
+			"xs": 12
+		},
+		"requestSpacingSec": {
+			"type": "number",
+			"label": "Request spacing (s)",
+			"min": 61,
+			"newLine": true,
+			"xs": 12,
+			"sm": 6,
+			"md": 3,
+			"lg": 2,
+			"xl": 2
+		},
+		"startupDelaySec": {
+			"type": "number",
+			"label": "Startup delay (s)",
+			"min": 0,
+			"newLine": false,
+			"xs": 12,
+			"sm": 6,
+			"md": 3,
+			"lg": 2,
+			"xl": 2
+		},
+		"retryDelaySec": {
+			"type": "number",
+			"label": "Retry delay (s)",
+			"min": 1,
+			"newLine": false,
+			"xs": 12,
+			"sm": 6,
+			"md": 3,
+			"lg": 2,
+			"xl": 2
+		},
+		"maxConsecutiveErrors": {
+			"type": "number",
+			"label": "Maximum consecutive errors",
+			"min": 1,
+			"newLine": false,
+			"xs": 12,
+			"sm": 6,
+			"md": 3,
+			"lg": 2,
+			"xl": 2
+		},
+		"nodesHeader": {
+			"type": "header",
+			"text": "CAN nodes",
+			"size": 2,
+			"newLine": true
+		},
+		"nodes": {
+			"type": "table",
+			"label": "Nodes",
+			"newLine": true,
+			"xs": 12,
+			"items": [
+				{
+					"attr": "enabled",
+					"type": "checkbox",
+					"title": "Enabled",
+					"default": true,
+					"width": "80px"
+				},
+				{
+					"attr": "node",
+					"type": "number",
+					"title": "CAN node",
+					"min": 1,
+					"max": 255,
+					"width": "100px"
+				},
+				{
+					"attr": "name",
+					"type": "text",
+					"title": "Name",
+					"width": "180px"
+				},
+				{
+					"attr": "jsonparam",
+					"type": "text",
+					"title": "jsonparam",
+					"default": "I,O,Sg,Sd,St,Ss",
+					"width": "220px"
+				},
+				{
+					"attr": "useDesignation",
+					"type": "checkbox",
+					"title": "Designations",
+					"default": true,
+					"width": "110px"
+				},
+				{
+					"attr": "createRawJson",
+					"type": "checkbox",
+					"title": "Raw JSON",
+					"default": false,
+					"width": "90px"
+				}
+			]
+		},
+		"maintenanceHeader": {
+			"type": "header",
+			"text": "Maintenance",
+			"size": 2,
+			"newLine": true
+		},
+		"testConnection": {
+			"type": "sendTo",
+			"label": "Test connection",
+			"command": "testConnection",
+			"newLine": true,
+			"xs": 12,
+			"sm": 6,
+			"md": 3,
+			"lg": 2,
+			"xl": 2
+		},
+		"recreateObjects": {
+			"type": "sendTo",
+			"label": "Refresh object names",
+			"command": "recreateObjects",
+			"newLine": false,
+			"xs": 12,
+			"sm": 6,
+			"md": 3,
+			"lg": 2,
+			"xl": 2
+		},
+		"cleanupMissingObjects": {
+			"type": "checkbox",
+			"label": "Cleanup missing objects",
+			"newLine": true,
+			"xs": 12,
+			"sm": 12,
+			"md": 6,
+			"lg": 4,
+			"xl": 4
+		}
+	}
+}
