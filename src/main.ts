@@ -134,6 +134,7 @@ class Ta extends utils.Adapter {
 		const node = getEnabledNodes(config)[0];
 		try {
 			const parsed = await this.pollNode(config, node);
+			const enabledNodeCount = getEnabledNodes(config).length;
 			this.sendTo(
 				obj.from,
 				obj.command,
@@ -141,7 +142,11 @@ class Ta extends utils.Adapter {
 					ok: parsed.statusCode === 0,
 					statusCode: parsed.statusCode,
 					statusText: parsed.statusText,
-					message: parsed.statusCode === 0 ? "Connection successful." : parsed.statusText,
+					node: node.node,
+					message:
+						parsed.statusCode === 0
+							? `Connection successful for CAN node ${node.node}. Regular polling checks ${enabledNodeCount} enabled node(s).`
+							: `CAN node ${node.node}: ${parsed.statusText}`,
 				},
 				obj.callback,
 			);
@@ -212,7 +217,7 @@ class Ta extends utils.Adapter {
 		}
 
 		if (parsed.statusCode !== 0) {
-			await this.handleCmiStatus(parsed, config);
+			await this.handleCmiStatus(parsed, config, node);
 			return parsed;
 		}
 
@@ -236,14 +241,16 @@ class Ta extends utils.Adapter {
 		return parsed;
 	}
 
-	private async handleCmiStatus(parsed: ParsedCmiResponse, config: TaConfig): Promise<void> {
+	private async handleCmiStatus(parsed: ParsedCmiResponse, config: TaConfig, node: TaNodeConfig): Promise<void> {
 		if (!this.objectFactory || !this.requestQueue) {
 			return;
 		}
 
 		const statusText = parsed.statusText || getCmiStatusText(parsed.statusCode);
+		const nodeStatusText = `CAN node ${node.node}: ${statusText} (status code ${parsed.statusCode})`;
 		await this.objectFactory.setInfoState("connection", false);
-		await this.objectFactory.setInfoState("lastError", statusText);
+		await this.objectFactory.setInfoState("lastError", nodeStatusText);
+		this.log.warn(nodeStatusText);
 
 		if (parsed.statusCode === 4) {
 			this.log.warn("C.M.I. reported TOO MANY REQUESTS. Increasing request spacing temporarily.");

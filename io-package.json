@@ -1,11 +1,15 @@
 {
 	"common": {
 		"name": "ta",
-		"version": "0.0.1",
+		"version": "0.0.2",
 		"news": {
 			"NEXT": {
-				"en": "Initial development version for read-only C.M.I. JSON API polling.",
-				"de": "Erste Entwicklungsversion fuer read-only Polling der C.M.I.-JSON-API."
+				"en": "Work in progress.",
+				"de": "In Entwicklung."
+			},
+			"0.0.2": {
+				"en": "Log C.M.I. status errors with CAN node context.",
+				"de": "C.M.I.-Statusfehler werden mit CAN-Node-Kontext geloggt."
 			},
 			"0.0.1": {
 				"en": "Initial release.",
