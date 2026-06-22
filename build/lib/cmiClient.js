@@ -67,10 +67,10 @@ class CmiAbortError extends Error {
 }
 function buildCmiApiUrl(request) {
   const url = new import_node_url.URL(`${request.protocol}://${request.host}:${request.port}/INCLUDE/api.cgi`);
-  url.searchParams.set("jsonnode", String(request.node));
-  url.searchParams.set("jsonparam", request.jsonparam);
+  const jsonparam = encodeURIComponent(request.jsonparam).replace(/%2C/gi, ",");
+  url.search = `?jsonnode=${encodeURIComponent(String(request.node))}&jsonparam=${jsonparam}`;
   if (request.useDesignation) {
-    url.searchParams.set("jsondesignation", "1");
+    url.search += "&jsondesignation=1";
   }
   return url;
 }

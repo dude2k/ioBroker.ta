@@ -46,7 +46,7 @@ describe("CmiClient integration", () => {
 	it("performs a successful authenticated request", async () => {
 		const testServer = await createServer((req, res) => {
 			expect(req.headers.authorization).to.equal("Basic ZXhwZXJ0OnNlY3JldA==");
-			expect(req.url).to.equal("/INCLUDE/api.cgi?jsonnode=1&jsonparam=I%2CO&jsondesignation=1");
+			expect(req.url).to.equal("/INCLUDE/api.cgi?jsonnode=1&jsonparam=I,O&jsondesignation=1");
 			res.setHeader("content-type", "application/json");
 			res.end(JSON.stringify({ "Status code": 0, Header: { Device: "87" }, Data: { Inputs: [] } }));
 		});
