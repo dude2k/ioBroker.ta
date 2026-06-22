@@ -1,11 +1,15 @@
 {
 	"common": {
 		"name": "ta",
-		"version": "0.0.2",
+		"version": "0.0.3",
 		"news": {
 			"NEXT": {
 				"en": "Work in progress.",
 				"de": "In Entwicklung."
+			},
+			"0.0.3": {
+				"en": "Clarify CAN node configuration for installations where the C.M.I. has its own CAN address.",
+				"de": "CAN-Node-Konfiguration fuer Installationen mit eigener C.M.I.-CAN-Adresse verdeutlicht."
 			},
 			"0.0.2": {
 				"en": "Log C.M.I. status errors with CAN node context.",

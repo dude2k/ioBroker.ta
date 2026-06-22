@@ -14,6 +14,7 @@
 	"Retry delay (s)": "Retry-Verzoegerung (s)",
 	"Maximum consecutive errors": "Maximale Fehler in Folge",
 	"CAN nodes": "CAN-Nodes",
+	"Enter the CAN node numbers of the controllers/devices that should deliver values, for example UVR16x2 or RSM610. Do not enter the C.M.I. own CAN node number unless that node itself returns C.M.I. JSON API data.": "Trage die CAN-Node-Nummern der Regler/Geraete ein, die Werte liefern sollen, zum Beispiel UVR16x2 oder RSM610. Trage nicht die eigene CAN-Node-Nummer des C.M.I. ein, ausser dieser Node liefert selbst Daten ueber die C.M.I.-JSON-API.",
 	"Nodes": "Nodes",
 	"Enabled": "Aktiv",
 	"CAN node": "CAN-Node",

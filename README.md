@@ -35,7 +35,7 @@ Version 1.x focuses only on read-only C.M.I. JSON API polling and a stable gener
 - `requestSpacingSec`: global spacing between requests to the same C.M.I., minimum `61`, default `65`
 - `startupDelaySec`: delay before the first poll
 - `retryDelaySec`: delay after network errors or CAN busy responses
-- `nodes`: CAN nodes to query
+- `nodes`: CAN nodes to query. Enter the node numbers of the controllers/devices that should deliver values. Do not enter the C.M.I. own CAN node number unless that node itself returns C.M.I. JSON API data.
 - `jsonparam`: C.M.I. JSON API parameter list, default `I,O,Sg,Sd,St,Ss`
 - `useDesignation`: adds `jsondesignation=1` and uses designations for `common.name`
 - `createRawJson`: stores the raw response below the node info channel for debugging
@@ -73,6 +73,7 @@ State IDs are stable and never depend on C.M.I. designations. Designations only 
 ## Troubleshooting
 
 - `Authentication failed; C.M.I. expert credentials required`: check the expert user credentials in the C.M.I.
+- `SYNTAX ERROR` for the C.M.I. own CAN node: remove or disable that node from the adapter configuration and configure the CAN node number of the target controller instead.
 - `NODE ERROR`: the configured CAN node did not answer or is not reachable through the C.M.I.
 - `DEVICE NOT SUPPORTED`: the target device is not supported by this C.M.I. API response.
 - `TOO MANY REQUESTS`: another client or adapter instance may be polling too quickly. Increase `requestSpacingSec`.
@@ -108,6 +109,7 @@ There are existing ioBroker adapters and integrations around BL-NET/C.M.I. devic
 ### 0.0.2
 
 - Log C.M.I. status errors with CAN node context.
+- Document that the configured nodes are target CAN devices, not the C.M.I. own CAN address.
 
 ### 0.0.1
 

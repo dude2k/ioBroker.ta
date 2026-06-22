@@ -149,6 +149,12 @@
 			"size": 2,
 			"newLine": true
 		},
+		"nodesNotice": {
+			"type": "staticText",
+			"text": "Enter the CAN node numbers of the controllers/devices that should deliver values, for example UVR16x2 or RSM610. Do not enter the C.M.I. own CAN node number unless that node itself returns C.M.I. JSON API data.",
+			"newLine": true,
+			"xs": 12
+		},
 		"nodes": {
 			"type": "table",
 			"label": "Nodes",
