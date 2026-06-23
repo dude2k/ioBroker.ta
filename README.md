@@ -1,5 +1,9 @@
 # ioBroker.ta
 
+<p align="center">
+  <img src="admin/ta.png" alt="ioBroker.ta adapter icon" width="160">
+</p>
+
 [![NPM version](https://img.shields.io/npm/v/iobroker.ta.svg)](https://www.npmjs.com/package/iobroker.ta)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.ta.svg)](https://www.npmjs.com/package/iobroker.ta)
 ![Number of Installations](https://iobroker.live/badges/ta-installed.svg)
@@ -108,6 +112,10 @@ There are existing ioBroker adapters and integrations around BL-NET/C.M.I. devic
 - C.M.I. product and documentation pages: https://www.ta.co.at/x2-frei-programmierbare-regelung/cmi/
 
 ## Changelog
+
+### 0.0.7
+
+- Replace the adapter icon and show it in the README.
 
 ### 0.0.6
 
