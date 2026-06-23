@@ -1,11 +1,15 @@
 {
 	"common": {
 		"name": "ta",
-		"version": "0.0.4",
+		"version": "0.0.5",
 		"news": {
 			"NEXT": {
 				"en": "Work in progress.",
 				"de": "In Entwicklung."
+			},
+			"0.0.5": {
+				"en": "Map plain C.M.I. system group names and keep the global connection state true when other CAN nodes poll successfully.",
+				"de": "Einfache C.M.I.-Systemgruppennamen werden erkannt und der globale Verbindungsstatus bleibt wahr, wenn andere CAN-Nodes erfolgreich gelesen werden."
 			},
 			"0.0.4": {
 				"en": "Send C.M.I. jsonparam values with literal commas to avoid SYNTAX ERROR responses.",

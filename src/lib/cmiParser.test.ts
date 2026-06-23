@@ -72,4 +72,11 @@ describe("cmiParser", () => {
 		expect(resolveGroup("Sg1")).to.deep.equal({ id: "system_general", name: "System general", known: true });
 		expect(sanitizeIdPart("Future Group! 1")).to.equal("future_group_1");
 	});
+
+	it("maps plain C.M.I. system group names", () => {
+		expect(resolveGroup("general")).to.deep.equal({ id: "system_general", name: "System general", known: true });
+		expect(resolveGroup("date")).to.deep.equal({ id: "system_date", name: "System date", known: true });
+		expect(resolveGroup("time")).to.deep.equal({ id: "system_time", name: "System time", known: true });
+		expect(resolveGroup("sun")).to.deep.equal({ id: "system_sun", name: "System sun", known: true });
+	});
 });
