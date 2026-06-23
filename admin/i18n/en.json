@@ -14,7 +14,7 @@
 	"Retry delay (s)": "Retry delay (s)",
 	"Maximum consecutive errors": "Maximum consecutive errors",
 	"CAN nodes": "CAN nodes",
-	"Enter the CAN node numbers of the controllers/devices that should deliver values, for example UVR16x2 or RSM610. Do not enter the C.M.I. own CAN node number unless that node itself returns C.M.I. JSON API data.": "Enter the CAN node numbers of the controllers/devices that should deliver values, for example UVR16x2 or RSM610. Do not enter the C.M.I. own CAN node number unless that node itself returns C.M.I. JSON API data.",
+	"Enter the CAN node numbers of the controllers/devices that deliver values, for example UVR16x2, UVR610 or RSM610. Do not enter the C.M.I. own CAN node number; the C.M.I. is the gateway, not a data node for this adapter.": "Enter the CAN node numbers of the controllers/devices that deliver values, for example UVR16x2, UVR610 or RSM610. Do not enter the C.M.I. own CAN node number; the C.M.I. is the gateway, not a data node for this adapter.",
 	"Nodes": "Nodes",
 	"Enabled": "Enabled",
 	"CAN node": "CAN node",

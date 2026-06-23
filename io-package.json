@@ -1,11 +1,15 @@
 {
 	"common": {
 		"name": "ta",
-		"version": "0.0.5",
+		"version": "0.0.6",
 		"news": {
 			"NEXT": {
 				"en": "Work in progress.",
 				"de": "In Entwicklung."
+			},
+			"0.0.6": {
+				"en": "Clarify that the C.M.I. is the gateway and add explicit unofficial-project and asset/copyright notes.",
+				"de": "Verdeutlicht, dass das C.M.I. das Gateway ist, und ergaenzt Hinweise zum inoffiziellen Projekt sowie zu Assets/Copyright."
 			},
 			"0.0.5": {
 				"en": "Map plain C.M.I. system group names and keep the global connection state true when other CAN nodes poll successfully.",
