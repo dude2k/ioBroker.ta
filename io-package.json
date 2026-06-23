@@ -1,11 +1,15 @@
 {
 	"common": {
 		"name": "ta",
-		"version": "0.0.6",
+		"version": "0.0.7",
 		"news": {
 			"NEXT": {
 				"en": "Work in progress.",
 				"de": "In Entwicklung."
+			},
+			"0.0.7": {
+				"en": "Replace the adapter icon and show it in the README.",
+				"de": "Adapter-Icon ersetzt und in der README eingebunden."
 			},
 			"0.0.6": {
 				"en": "Clarify that the C.M.I. is the gateway and add explicit unofficial-project and asset/copyright notes.",
