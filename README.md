@@ -79,7 +79,7 @@ State IDs are stable and never depend on C.M.I. designations. Designations only 
 - `TOO MANY REQUESTS`: another client or adapter instance may be polling too quickly. Increase `requestSpacingSec`.
 - `CAN BUSY`: the CAN bus is busy. The adapter waits for `retryDelaySec` before the next request.
 - HTTP errors: verify protocol, host, port and firewall settings.
-- If the admin test connection succeeds but `ta.0.info.connection` is false, check `ta.0.info.lastError`. The test checks one request, while regular polling checks every enabled CAN node. One failing configured node can make the global connection indicator false.
+- If the admin test connection succeeds but `ta.0.info.lastError` reports one CAN node, check whether that node really exposes values through the C.M.I. JSON API. Other successfully polled nodes keep `ta.0.info.connection` true.
 
 ## Development
 
@@ -105,6 +105,11 @@ There are existing ioBroker adapters and integrations around BL-NET/C.M.I. devic
 - C.M.I. product and documentation pages: https://www.ta.co.at/x2-frei-programmierbare-regelung/cmi/
 
 ## Changelog
+
+### 0.0.5
+
+- Map plain C.M.I. system group names like `general`, `date`, `time` and `sun`.
+- Keep the global connection state true when at least one configured CAN node polls successfully.
 
 ### 0.0.4
 

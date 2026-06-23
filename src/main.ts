@@ -17,6 +17,7 @@ class Ta extends utils.Adapter {
 	private configSnapshot?: TaConfig;
 	private stopped = false;
 	private consecutiveErrors = 0;
+	private lastSuccessfulPollAt = 0;
 	private pollPromise?: Promise<void>;
 	private sleepTimer?: NodeJS.Timeout;
 	private sleepResolver?: () => void;
@@ -234,6 +235,7 @@ class Ta extends utils.Adapter {
 		);
 
 		this.consecutiveErrors = 0;
+		this.lastSuccessfulPollAt = now;
 		this.recreateObjectsOnNextPoll = false;
 		await this.objectFactory.setInfoState("connection", true);
 		await this.objectFactory.setInfoState("lastSuccessfulUpdate", now);
@@ -248,7 +250,9 @@ class Ta extends utils.Adapter {
 
 		const statusText = parsed.statusText || getCmiStatusText(parsed.statusCode);
 		const nodeStatusText = `CAN node ${node.node}: ${statusText} (status code ${parsed.statusCode})`;
-		await this.objectFactory.setInfoState("connection", false);
+		if (this.lastSuccessfulPollAt === 0) {
+			await this.objectFactory.setInfoState("connection", false);
+		}
 		await this.objectFactory.setInfoState("lastError", nodeStatusText);
 		this.log.warn(nodeStatusText);
 

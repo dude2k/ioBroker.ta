@@ -35,6 +35,7 @@ class Ta extends utils.Adapter {
   configSnapshot;
   stopped = false;
   consecutiveErrors = 0;
+  lastSuccessfulPollAt = 0;
   pollPromise;
   sleepTimer;
   sleepResolver;
@@ -223,6 +224,7 @@ class Ta extends utils.Adapter {
       node.createRawJson ? response.rawBody : void 0
     );
     this.consecutiveErrors = 0;
+    this.lastSuccessfulPollAt = now;
     this.recreateObjectsOnNextPoll = false;
     await this.objectFactory.setInfoState("connection", true);
     await this.objectFactory.setInfoState("lastSuccessfulUpdate", now);
@@ -235,7 +237,9 @@ class Ta extends utils.Adapter {
     }
     const statusText = parsed.statusText || (0, import_cmiStatus.getCmiStatusText)(parsed.statusCode);
     const nodeStatusText = `CAN node ${node.node}: ${statusText} (status code ${parsed.statusCode})`;
-    await this.objectFactory.setInfoState("connection", false);
+    if (this.lastSuccessfulPollAt === 0) {
+      await this.objectFactory.setInfoState("connection", false);
+    }
     await this.objectFactory.setInfoState("lastError", nodeStatusText);
     this.log.warn(nodeStatusText);
     if (parsed.statusCode === 4) {
